@@ -5,7 +5,7 @@ import javax.naming.InitialContext;
 
 public class Client {
 	public static void main(String[] args) {
-		String url = "rmi://localhost/";
+		String url = "rmi://localhost:8888/";
 		try {
 			Context namingContext = new InitialContext();
 			// 检索指定的对象。 即找到服务器端相对应的服务对象存根
