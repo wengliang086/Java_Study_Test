@@ -1,9 +1,9 @@
-package com.test.ĞòÁĞ»¯.rmi;
+package com.test.åºåˆ—åŒ–.rmi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface IService extends Remote {
-	// ÉùÃ÷·şÎñÆ÷¶Ë±ØĞëÌá¹©µÄ·şÎñ
+	// å£°æ˜æœåŠ¡å™¨ç«¯å¿…é¡»æä¾›çš„æœåŠ¡
 	String service(String content) throws RemoteException;
 }

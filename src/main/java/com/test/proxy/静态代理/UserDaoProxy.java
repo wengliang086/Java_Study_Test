@@ -1,13 +1,13 @@
-package com.test.proxy.¾²Ì¬´úÀí;
+package com.test.proxy.é™æ€ä»£ç†;
 
 import com.test.proxy.IUserDao;
 
 /**
- * ´úÀí¶ÔÏó,¾²Ì¬´úÀí 
- * È±µã:ÒòÎª´úÀí¶ÔÏóĞèÒªÓëÄ¿±ê¶ÔÏóÊµÏÖÒ»ÑùµÄ½Ó¿Ú,ËùÒÔ»áÓĞºÜ¶à´úÀíÀà,ÀàÌ«¶à.Í¬Ê±,Ò»µ©½Ó¿ÚÔö¼Ó·½·¨,Ä¿±ê¶ÔÏóÓë´úÀí¶ÔÏó¶¼ÒªÎ¬»¤
+ * ä»£ç†å¯¹è±¡,é™æ€ä»£ç† 
+ * ç¼ºç‚¹:å› ä¸ºä»£ç†å¯¹è±¡éœ€è¦ä¸ç›®æ ‡å¯¹è±¡å®ç°ä¸€æ ·çš„æ¥å£,æ‰€ä»¥ä¼šæœ‰å¾ˆå¤šä»£ç†ç±»,ç±»å¤ªå¤š.åŒæ—¶,ä¸€æ—¦æ¥å£å¢åŠ æ–¹æ³•,ç›®æ ‡å¯¹è±¡ä¸ä»£ç†å¯¹è±¡éƒ½è¦ç»´æŠ¤
  */
 public class UserDaoProxy implements IUserDao {
-	// ½ÓÊÕ±£´æÄ¿±ê¶ÔÏó
+	// æ¥æ”¶ä¿å­˜ç›®æ ‡å¯¹è±¡
 	private IUserDao target;
 
 	public UserDaoProxy(IUserDao target) {
@@ -15,9 +15,9 @@ public class UserDaoProxy implements IUserDao {
 	}
 
 	public void save() {
-		System.out.println("¿ªÊ¼ÊÂÎñ...");
-		target.save();// Ö´ĞĞÄ¿±ê¶ÔÏóµÄ·½·¨
-		System.out.println("Ìá½»ÊÂÎñ...");
+		System.out.println("å¼€å§‹äº‹åŠ¡...");
+		target.save();// æ‰§è¡Œç›®æ ‡å¯¹è±¡çš„æ–¹æ³•
+		System.out.println("æäº¤äº‹åŠ¡...");
 	}
 
 	public String get() {

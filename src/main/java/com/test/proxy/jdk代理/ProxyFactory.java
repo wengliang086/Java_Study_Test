@@ -1,31 +1,31 @@
-package com.test.proxy.jdk´úÀí;
+package com.test.proxy.jdkä»£ç†;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * ´´½¨¶¯Ì¬´úÀí¶ÔÏó ¶¯Ì¬´úÀí²»ĞèÒªÊµÏÖ½Ó¿Ú,µ«ÊÇĞèÒªÖ¸¶¨½Ó¿ÚÀàĞÍ
+ * åˆ›å»ºåŠ¨æ€ä»£ç†å¯¹è±¡ åŠ¨æ€ä»£ç†ä¸éœ€è¦å®ç°æ¥å£,ä½†æ˜¯éœ€è¦æŒ‡å®šæ¥å£ç±»å‹
  */
 public class ProxyFactory {
 
-	// Î¬»¤Ò»¸öÄ¿±ê¶ÔÏó
+	// ç»´æŠ¤ä¸€ä¸ªç›®æ ‡å¯¹è±¡
 	private Object target;
 
 	public ProxyFactory(Object target) {
 		this.target = target;
 	}
 
-	// ¸øÄ¿±ê¶ÔÏóÉú³É´úÀí¶ÔÏó
+	// ç»™ç›®æ ‡å¯¹è±¡ç”Ÿæˆä»£ç†å¯¹è±¡
 	public Object getProxyInstance() {
 		ClassLoader loader = target.getClass().getClassLoader();
 		Class<?>[] interfaces = target.getClass().getInterfaces();
 		Object t = Proxy.newProxyInstance(loader, interfaces, new InvocationHandler() {
 
 			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-				System.out.println("¿ªÊ¼ÊÂÎñ2 " + method.getName());
+				System.out.println("å¼€å§‹äº‹åŠ¡2 " + method.getName());
 				Object ret = method.invoke(target, args);
-				System.out.println("Ìá½»ÊÂÎñ2");
+				System.out.println("æäº¤äº‹åŠ¡2");
 				return ret;
 			}
 		});

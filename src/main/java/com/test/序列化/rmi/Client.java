@@ -1,4 +1,4 @@
-package com.test.ĞòÁĞ»¯.rmi;
+package com.test.åºåˆ—åŒ–.rmi;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -8,16 +8,16 @@ public class Client {
 		String url = "rmi://localhost:8888/";
 		try {
 			Context namingContext = new InitialContext();
-			// ¼ìË÷Ö¸¶¨µÄ¶ÔÏó¡£ ¼´ÕÒµ½·şÎñÆ÷¶ËÏà¶ÔÓ¦µÄ·şÎñ¶ÔÏó´æ¸ù
+			// æ£€ç´¢æŒ‡å®šçš„å¯¹è±¡ã€‚ å³æ‰¾åˆ°æœåŠ¡å™¨ç«¯ç›¸å¯¹åº”çš„æœåŠ¡å¯¹è±¡å­˜æ ¹
 			IService service02 = (IService) namingContext.lookup(url + "service02");
 			Class<? extends IService> stubClass = service02.getClass();
-			System.out.println(service02 + " ÊÇ " + stubClass.getName() + " µÄÊµÀı£¡");
-			// »ñµÃ±¾µ×´æ¸ùÒÑÊµÏÖµÄ½Ó¿ÚÀàĞÍ
+			System.out.println(service02 + " æ˜¯ " + stubClass.getName() + " çš„å®ä¾‹ï¼");
+			// è·å¾—æœ¬åº•å­˜æ ¹å·²å®ç°çš„æ¥å£ç±»å‹
 			Class<?>[] interfaces = stubClass.getInterfaces();
 			for (Class<?> c : interfaces) {
-				System.out.println("´æ¸ùÀàÊµÏÖÁË " + c.getName() + " ½Ó¿Ú£¡");
+				System.out.println("å­˜æ ¹ç±»å®ç°äº† " + c.getName() + " æ¥å£ï¼");
 			}
-			System.out.println(service02.service("ÄãºÃ£¡"));
+			System.out.println(service02.service("ä½ å¥½ï¼"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

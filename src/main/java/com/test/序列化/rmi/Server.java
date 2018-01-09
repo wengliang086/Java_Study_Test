@@ -1,4 +1,4 @@
-package com.test.ĞòÁĞ»¯.rmi;
+package com.test.åºåˆ—åŒ–.rmi;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
@@ -8,12 +8,12 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 
 /* 
-* Context½Ó¿Ú±íÊ¾Ò»¸öÃüÃûÉÏÏÂÎÄ£¬ËüÓÉÒ»×éÃû³Æµ½¶ÔÏóµÄ°ó¶¨×é³É¡£ 
-* Ëü°üº¬¼ì²éºÍ¸üĞÂÕâĞ©°ó¶¨µÄÒ»Ğ©·½·¨¡£ 
+* Contextæ¥å£è¡¨ç¤ºä¸€ä¸ªå‘½åä¸Šä¸‹æ–‡ï¼Œå®ƒç”±ä¸€ç»„åç§°åˆ°å¯¹è±¡çš„ç»‘å®šç»„æˆã€‚ 
+* å®ƒåŒ…å«æ£€æŸ¥å’Œæ›´æ–°è¿™äº›ç»‘å®šçš„ä¸€äº›æ–¹æ³•ã€‚ 
 */
 /* 
-* InitialContextÀàÊÇÖ´ĞĞÃüÃû²Ù×÷µÄ³õÊ¼ÉÏÏÂÎÄ¡£    
-* ¸Ã³õÊ¼ÉÏÏÂÎÄÊµÏÖ Context ½Ó¿Ú²¢Ìá¹©½âÎöÃû³ÆµÄÆğÊ¼µã¡£ 
+* InitialContextç±»æ˜¯æ‰§è¡Œå‘½åæ“ä½œçš„åˆå§‹ä¸Šä¸‹æ–‡ã€‚    
+* è¯¥åˆå§‹ä¸Šä¸‹æ–‡å®ç° Context æ¥å£å¹¶æä¾›è§£æåç§°çš„èµ·å§‹ç‚¹ã€‚ 
 */
 public class Server {
 
@@ -21,18 +21,18 @@ public class Server {
 
 	public static void main(String[] args) {
 		try {
-			// ÊµÀı»¯ÊµÏÖÁËIService½Ó¿ÚµÄÔ¶³Ì·şÎñServiceImpl¶ÔÏó
+			// å®ä¾‹åŒ–å®ç°äº†IServiceæ¥å£çš„è¿œç¨‹æœåŠ¡ServiceImplå¯¹è±¡
 			IService service = new ServiceImpl();
-			// Éú³ÉÔ¶³Ì¶ÔÏó×¢²á±íRegistryµÄÊµÀı£¬²¢Ö¸¶¨¶Ë¿ÚÎª8888£¨Ä¬ÈÏ¶Ë¿ÚÊÇ1099£©
+			// ç”Ÿæˆè¿œç¨‹å¯¹è±¡æ³¨å†Œè¡¨Registryçš„å®ä¾‹ï¼Œå¹¶æŒ‡å®šç«¯å£ä¸º8888ï¼ˆé»˜è®¤ç«¯å£æ˜¯1099ï¼‰
 			LocateRegistry.createRegistry(8888);
 			if (type == 1) {
-				// ³õÊ¼»¯ÃüÃû¿Õ¼ä
+				// åˆå§‹åŒ–å‘½åç©ºé—´
 				Context namingContext = new InitialContext();
-				// ½«Ãû³Æ°ó¶¨µ½¶ÔÏó,¼´ÏòÃüÃû¿Õ¼ä×¢²áÒÑ¾­ÊµÀı»¯µÄÔ¶³Ì·şÎñ¶ÔÏó
+				// å°†åç§°ç»‘å®šåˆ°å¯¹è±¡,å³å‘å‘½åç©ºé—´æ³¨å†Œå·²ç»å®ä¾‹åŒ–çš„è¿œç¨‹æœåŠ¡å¯¹è±¡
 				namingContext.rebind("rmi://localhost:8888/service02", service);
 			} else {
-				// °ÑÔ¶³Ì¶ÔÏó×¢²áµ½RMI×¢²á·şÎñÆ÷ÉÏ£¬²¢ÃüÃûÎªRHello
-				// °ó¶¨µÄURL±ê×¼¸ñÊ½Îª£ºrmi://host:port/name(Ğ­ÒéÃû¿ÉÒÔÊ¡ÂÔ£¬ÏÂÃæÁ½ÖÖĞ´·¨¶¼¿ÉÒÔ£©
+				// æŠŠè¿œç¨‹å¯¹è±¡æ³¨å†Œåˆ°RMIæ³¨å†ŒæœåŠ¡å™¨ä¸Šï¼Œå¹¶å‘½åä¸ºRHello
+				// ç»‘å®šçš„URLæ ‡å‡†æ ¼å¼ä¸ºï¼šrmi://host:port/name(åè®®åå¯ä»¥çœç•¥ï¼Œä¸‹é¢ä¸¤ç§å†™æ³•éƒ½å¯ä»¥ï¼‰
 				Naming.bind("rmi://127.0.0.1:8888/service02", service);
 			}
 		} catch (RemoteException e) {
@@ -40,6 +40,6 @@ public class Server {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("·şÎñÆ÷ÏòÃüÃû±í×¢²áÁË1¸öÔ¶³Ì·şÎñ¶ÔÏó£¡");
+		System.out.println("æœåŠ¡å™¨å‘å‘½åè¡¨æ³¨å†Œäº†1ä¸ªè¿œç¨‹æœåŠ¡å¯¹è±¡ï¼");
 	}
 }

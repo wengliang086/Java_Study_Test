@@ -1,9 +1,9 @@
-package com.test.ĞòÁĞ»¯.rmi;
+package com.test.åºåˆ—åŒ–.rmi;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-//UnicastRemoteObjectÓÃÓÚµ¼³öµÄÔ¶³Ì¶ÔÏóºÍ»ñµÃÓë¸ÃÔ¶³Ì¶ÔÏóÍ¨ĞÅµÄ´æ¸ù¡£
+//UnicastRemoteObjectç”¨äºå¯¼å‡ºçš„è¿œç¨‹å¯¹è±¡å’Œè·å¾—ä¸è¯¥è¿œç¨‹å¯¹è±¡é€šä¿¡çš„å­˜æ ¹ã€‚
 public class ServiceImpl extends UnicastRemoteObject implements IService {
 
 	protected ServiceImpl() throws RemoteException {

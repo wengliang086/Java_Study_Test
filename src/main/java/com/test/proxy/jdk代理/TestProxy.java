@@ -1,4 +1,4 @@
-package com.test.proxy.jdk´úÀí;
+package com.test.proxy.jdkä»£ç†;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,21 +9,21 @@ import com.test.proxy.UserDao;
 import sun.misc.ProxyGenerator;
 
 /**
- * ²âÊÔÀà
+ * æµ‹è¯•ç±»
  */
 public class TestProxy {
 	public static void main(String[] args) {
-		// Ä¿±ê¶ÔÏó
+		// ç›®æ ‡å¯¹è±¡
 		UserDao target = new UserDao();
-		// ¡¾Ô­Ê¼µÄÀàĞÍ class ¡¿
+		// ã€åŸå§‹çš„ç±»å‹ class ã€‘
 		System.out.println(target.getClass());
 
-		// ¸øÄ¿±ê¶ÔÏó£¬´´½¨´úÀí¶ÔÏó
+		// ç»™ç›®æ ‡å¯¹è±¡ï¼Œåˆ›å»ºä»£ç†å¯¹è±¡
 		IUserDao proxy = (IUserDao) new ProxyFactory(target).getProxyInstance();
-		// class $Proxy0 ÄÚ´æÖĞ¶¯Ì¬Éú³ÉµÄ´úÀí¶ÔÏó
+		// class $Proxy0 å†…å­˜ä¸­åŠ¨æ€ç”Ÿæˆçš„ä»£ç†å¯¹è±¡
 		System.out.println(proxy.getClass());
 
-		proxy.save();// Ö´ĞĞµÄÊÇ´úÀíµÄ·½·¨
+		proxy.save();// æ‰§è¡Œçš„æ˜¯ä»£ç†çš„æ–¹æ³•
 		String data = proxy.get();
 		System.out.println(data);
 
@@ -31,7 +31,7 @@ public class TestProxy {
 	}
 
 	/**
-	 * Jdk¸ù¾İ½Ó¿ÚÉú³É×Ö½ÚÂë£¬Ğ´ÈëclassÎÄ¼ş£¬ÔÙ·´±àÒë£¬¾Í¿ÉÒÔÇåÎúµÄÀí½âJdk¶¯Ì¬´úÀí»úÖÆ
+	 * Jdkæ ¹æ®æ¥å£ç”Ÿæˆå­—èŠ‚ç ï¼Œå†™å…¥classæ–‡ä»¶ï¼Œå†åç¼–è¯‘ï¼Œå°±å¯ä»¥æ¸…æ™°çš„ç†è§£JdkåŠ¨æ€ä»£ç†æœºåˆ¶
 	 */
 	private static void genClass() {
 		String path = "C:\\Users\\Administrator\\Desktop/a.class";

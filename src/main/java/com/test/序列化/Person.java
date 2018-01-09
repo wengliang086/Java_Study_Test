@@ -1,4 +1,4 @@
-package com.test.ĞòÁĞ»¯;
+package com.test.åºåˆ—åŒ–;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -15,7 +15,7 @@ public class Person implements Serializable {
 
 	private String name = null;
 
-	// µ±Ä³¸ö×Ö¶Î±»ÉùÃ÷Îªtransientºó£¬Ä¬ÈÏĞòÁĞ»¯»úÖÆ¾Í»áºöÂÔ¸Ã×Ö¶Î
+	// å½“æŸä¸ªå­—æ®µè¢«å£°æ˜ä¸ºtransientåï¼Œé»˜è®¤åºåˆ—åŒ–æœºåˆ¶å°±ä¼šå¿½ç•¥è¯¥å­—æ®µ
 	transient private Integer age = null;
 
 	private Gender gender = null;

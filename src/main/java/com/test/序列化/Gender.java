@@ -1,4 +1,4 @@
-package com.test.ĞòÁĞ»¯;
+package com.test.åºåˆ—åŒ–;
 
 public enum Gender {
 

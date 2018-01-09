@@ -1,4 +1,4 @@
-package com.test.ĞòÁĞ»¯;
+package com.test.åºåˆ—åŒ–;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,7 +15,7 @@ import java.io.ObjectOutputStream;
 public class SimpleSerial {
 
 	/**
-	 * ËüÏÈ½«Ò»¸öPerson¶ÔÏó±£´æµ½ÎÄ¼şperson.outÖĞ£¬È»ºóÔÙ´Ó¸ÃÎÄ¼şÖĞ¶Á³ö±»´æ´¢µÄPerson¶ÔÏó£¬²¢´òÓ¡¸Ã¶ÔÏó¡£
+	 * å®ƒå…ˆå°†ä¸€ä¸ªPersonå¯¹è±¡ä¿å­˜åˆ°æ–‡ä»¶person.outä¸­ï¼Œç„¶åå†ä»è¯¥æ–‡ä»¶ä¸­è¯»å‡ºè¢«å­˜å‚¨çš„Personå¯¹è±¡ï¼Œå¹¶æ‰“å°è¯¥å¯¹è±¡ã€‚
 	 * 
 	 * @param args
 	 * @throws Exception
@@ -29,7 +29,7 @@ public class SimpleSerial {
 		oout.close();
 
 		ObjectInputStream oin = new ObjectInputStream(new FileInputStream(file));
-		Object newPerson = oin.readObject(); // Ã»ÓĞÇ¿ÖÆ×ª»»µ½PersonÀàĞÍ
+		Object newPerson = oin.readObject(); // æ²¡æœ‰å¼ºåˆ¶è½¬æ¢åˆ°Personç±»å‹
 		oin.close();
 		System.out.println(newPerson);
 	}
