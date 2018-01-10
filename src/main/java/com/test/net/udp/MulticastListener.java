@@ -21,7 +21,7 @@ public class MulticastListener {
 		MulticastSocket multicastSocket = new MulticastSocket(port);
 		multicastSocket.joinGroup(address);
 		DatagramPacket packet = new DatagramPacket(data, data.length);
-		// receive()是阻塞方法，会等待客户端发送过来的信息
+		// receive()鏄樆濉炴柟娉曪紝浼氱瓑寰呭鎴风鍙戦�佽繃鏉ョ殑淇℃伅
 		multicastSocket.receive(packet);
 		String message = new String(packet.getData(), 0, packet.getLength());
 		System.out.println(message);

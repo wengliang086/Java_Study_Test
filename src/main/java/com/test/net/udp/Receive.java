@@ -8,48 +8,48 @@ import java.net.SocketAddress;
 public class Receive {
 
 	public static void main(String[] args) throws Exception {
-		// È·¶¨½ÓÊÜ·½µÄIPºÍ¶Ë¿ÚºÅ£¬IPµØÖ·Îª±¾µØ»úÆ÷µØÖ·  
+		// ç¡®å®šæ¥å—æ–¹çš„IPå’Œç«¯å£å·ï¼ŒIPåœ°å€ä¸ºæœ¬åœ°æœºå™¨åœ°å€  
         InetAddress ip = InetAddress.getLocalHost();  
         int port = 8888;  
         
 
-        // ´´½¨½ÓÊÕ·½µÄÌ×½Ó×Ö,²¢ÖÆ¶¨¶Ë¿ÚºÅºÍIPµØÖ·  
+        // åˆ›å»ºæ¥æ”¶æ–¹çš„å¥—æ¥å­—,å¹¶åˆ¶å®šç«¯å£å·å’ŒIPåœ°å€  
         DatagramSocket getSocket = new DatagramSocket(port, ip);  
 
-        // È·¶¨Êı¾İ±¨½ÓÊÜµÄÊı¾İµÄÊı×é´óĞ¡  
+        // ç¡®å®šæ•°æ®æŠ¥æ¥å—çš„æ•°æ®çš„æ•°ç»„å¤§å°  
         byte[] buf = new byte[1024];  
 
-        // ´´½¨½ÓÊÜÀàĞÍµÄÊı¾İ±¨£¬Êı¾İ½«´æ´¢ÔÚbufÖĞ  
+        // åˆ›å»ºæ¥å—ç±»å‹çš„æ•°æ®æŠ¥ï¼Œæ•°æ®å°†å­˜å‚¨åœ¨bufä¸­  
         DatagramPacket getPacket = new DatagramPacket(buf, buf.length);  
 
-        // Í¨¹ıÌ×½Ó×Ö½ÓÊÕÊı¾İ  
+        // é€šè¿‡å¥—æ¥å­—æ¥æ”¶æ•°æ®  
         getSocket.receive(getPacket);  
 
-        // ½âÎö·¢ËÍ·½´«µİµÄÏûÏ¢£¬²¢´òÓ¡  
+        // è§£æå‘é€æ–¹ä¼ é€’çš„æ¶ˆæ¯ï¼Œå¹¶æ‰“å°  
         String getMes = new String(buf, 0, getPacket.getLength());  
-        System.out.println("¶Ô·½·¢ËÍµÄÏûÏ¢£º" + getMes);  
+        System.out.println("å¯¹æ–¹å‘é€çš„æ¶ˆæ¯ï¼š" + getMes);  
 
-        // Í¨¹ıÊı¾İ±¨µÃµ½·¢ËÍ·½µÄIPºÍ¶Ë¿ÚºÅ£¬²¢´òÓ¡  
+        // é€šè¿‡æ•°æ®æŠ¥å¾—åˆ°å‘é€æ–¹çš„IPå’Œç«¯å£å·ï¼Œå¹¶æ‰“å°  
         InetAddress sendIP = getPacket.getAddress();  
         int sendPort = getPacket.getPort();  
-        System.out.println("¶Ô·½µÄIPµØÖ·ÊÇ£º" + sendIP.getHostAddress());  
-        System.out.println("¶Ô·½µÄ¶Ë¿ÚºÅÊÇ£º" + sendPort);  
+        System.out.println("å¯¹æ–¹çš„IPåœ°å€æ˜¯ï¼š" + sendIP.getHostAddress());  
+        System.out.println("å¯¹æ–¹çš„ç«¯å£å·æ˜¯ï¼š" + sendPort);  
 
-        // Í¨¹ıÊı¾İ±¨µÃµ½·¢ËÍ·½µÄÌ×½Ó×ÖµØÖ·  
+        // é€šè¿‡æ•°æ®æŠ¥å¾—åˆ°å‘é€æ–¹çš„å¥—æ¥å­—åœ°å€  
         SocketAddress sendAddress = getPacket.getSocketAddress();  
 
-        // È·¶¨Òª·´À¡·¢ËÍ·½µÄÏûÏ¢ÄÚÈİ£¬²¢×ª»»Îª×Ö½ÚÊı×é  
-        String feedback = "½ÓÊÕ·½Ëµ£ºÎÒÊÕµ½ÁË£¡";  
+        // ç¡®å®šè¦åé¦ˆå‘é€æ–¹çš„æ¶ˆæ¯å†…å®¹ï¼Œå¹¶è½¬æ¢ä¸ºå­—èŠ‚æ•°ç»„  
+        String feedback = "æ¥æ”¶æ–¹è¯´ï¼šæˆ‘æ”¶åˆ°äº†ï¼";  
         byte[] backBuf = feedback.getBytes();  
 
-        // ´´½¨·¢ËÍÀàĞÍµÄÊı¾İ±¨  
+        // åˆ›å»ºå‘é€ç±»å‹çš„æ•°æ®æŠ¥  
         DatagramPacket sendPacket = new DatagramPacket(backBuf,  
                 backBuf.length, sendAddress);  
 
-        // Í¨¹ıÌ×½Ó×Ö·¢ËÍÊı¾İ  
+        // é€šè¿‡å¥—æ¥å­—å‘é€æ•°æ®  
         getSocket.send(sendPacket);  
 
-        // ¹Ø±ÕÌ×½Ó×Ö  
+        // å…³é—­å¥—æ¥å­—  
         getSocket.close();  
 	}
 }

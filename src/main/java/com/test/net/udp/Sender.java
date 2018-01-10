@@ -7,32 +7,32 @@ import java.net.InetAddress;
 public class Sender {
 
 	public static void main(String[] args) throws Exception {
-		// ´´½¨·¢ËÍ·½µÄÌ×½Ó×Ö£¬IPÄ¬ÈÏÎª±¾µØ£¬¶Ë¿ÚºÅËæ»ú
+		// åˆ›å»ºå‘é€æ–¹çš„å¥—æ¥å­—ï¼ŒIPé»˜è®¤ä¸ºæœ¬åœ°ï¼Œç«¯å£å·éšæœº
 		DatagramSocket sendSocket = new DatagramSocket();
 
-		// È·¶¨Òª·¢ËÍµÄÏûÏ¢£º
-		String mes = "ÄãºÃ£¡½ÓÊÕ·½£¡";
+		// ç¡®å®šè¦å‘é€çš„æ¶ˆæ¯ï¼š
+		String mes = "ä½ å¥½ï¼æ¥æ”¶æ–¹ï¼";
 		byte[] buf = mes.getBytes();
 		int port = 8888;
 		InetAddress address = InetAddress.getLocalHost();
 		DatagramPacket packet = new DatagramPacket(buf, buf.length, address, port);
-		// Í¨¹ıÌ×½Ó×Ö·¢ËÍÊı¾İ£º
+		// é€šè¿‡å¥—æ¥å­—å‘é€æ•°æ®ï¼š
 		sendSocket.send(packet);
 
-		// È·¶¨½ÓÊÜ·´À¡Êı¾İµÄ»º³å´æ´¢Æ÷£¬¼´´æ´¢Êı¾İµÄ×Ö½ÚÊı×é
+		// ç¡®å®šæ¥å—åé¦ˆæ•°æ®çš„ç¼“å†²å­˜å‚¨å™¨ï¼Œå³å­˜å‚¨æ•°æ®çš„å­—èŠ‚æ•°ç»„
 		byte[] getBuf = new byte[1024];
 
-		// ´´½¨½ÓÊÜÀàĞÍµÄÊı¾İ±¨
+		// åˆ›å»ºæ¥å—ç±»å‹çš„æ•°æ®æŠ¥
 		DatagramPacket getPacket = new DatagramPacket(getBuf, getBuf.length);
 
-		// Í¨¹ıÌ×½Ó×Ö½ÓÊÜÊı¾İ
+		// é€šè¿‡å¥—æ¥å­—æ¥å—æ•°æ®
 		sendSocket.receive(getPacket);
 
-		// ½âÎö·´À¡µÄÏûÏ¢£¬²¢´òÓ¡
+		// è§£æåé¦ˆçš„æ¶ˆæ¯ï¼Œå¹¶æ‰“å°
 		String backMes = new String(getBuf, 0, getPacket.getLength());
-		System.out.println("½ÓÊÜ·½·µ»ØµÄÏûÏ¢£º" + backMes);
+		System.out.println("æ¥å—æ–¹è¿”å›çš„æ¶ˆæ¯ï¼š" + backMes);
 
-		// ¹Ø±ÕÌ×½Ó×Ö
+		// å…³é—­å¥—æ¥å­—
 		sendSocket.close();
 	}
 }
