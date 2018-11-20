@@ -1,20 +1,18 @@
 package com.test.proxy.cglib;
 
-import com.test.proxy.UserDao;
-
 /**
- * ²âÊÔÀà
+ * æµ‹è¯•ç±»
  */
 public class TestProxy {
-	public static void main(String[] args) {
-		// Ä¿±ê¶ÔÏó
-		UserDao target = new UserDao();
+    public static void main(String[] args) {
+        // ç›®æ ‡å¯¹è±¡
+        UserDao target = new UserDao();
 
-		// ´úÀí¶ÔÏó
-		UserDao proxy = (UserDao) new ProxyFactory(target).getProxyInstance();
+        // ä»£ç†å¯¹è±¡
+        UserDao proxy = (UserDao) new ProxyFactory(target).getProxyInstance();
 
-		// Ö´ĞĞ´úÀí¶ÔÏóµÄ·½·¨
-		proxy.save();
-		proxy.get();
-	}
+        // æ‰§è¡Œä»£ç†å¯¹è±¡çš„æ–¹æ³•
+        proxy.save();
+        System.out.println(proxy.get());
+    }
 }

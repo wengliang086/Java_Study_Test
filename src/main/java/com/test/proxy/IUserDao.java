@@ -1,10 +1,10 @@
 package com.test.proxy;
 
 /**
- * ½Ó¿Ú
+ * æ¥å£
  */
 public interface IUserDao {
-	void save();
+    void save();
 
-	String get();
+    String get();
 }

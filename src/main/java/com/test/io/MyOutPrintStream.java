@@ -21,12 +21,12 @@ public class MyOutPrintStream extends PrintStream {
 		if (!message.equals("\r\n"))
 			message = prefix + message;
 		/**
-		 * 默认位置输出
+		 * 榛樿浣嶇疆杈撳嚭
 		 */
 		super.write(message.getBytes(), off, message.length());
 		// super.write(buf, off, len);
 		/**
-		 * 文件输出
+		 * 鏂囦欢杈撳嚭
 		 */
 		try {
 			bwriter.write(message);

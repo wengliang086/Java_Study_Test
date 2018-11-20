@@ -1,36 +1,32 @@
 package com.test.java.senior.future;
 
 import java.util.Random;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
- * ¼ÙÉèÓĞÒ»¸öºÜºÄÊ±µÄ·µ»ØÖµĞèÒª¼ÆËã£¬²¢ÇÒÕâ¸ö·µ»ØÖµ²»ÊÇÁ¢¿ÌĞèÒªµÄ»°£¬ ÄÇÃ´¾Í¿ÉÒÔÊ¹ÓÃÕâ¸ö×éºÏ£¬ÓÃÁíÒ»¸öÏß³ÌÈ¥¼ÆËã·µ»ØÖµ£¬¶øµ±Ç°Ïß³ÌÔÚÊ¹ÓÃÕâ¸ö·µ»ØÖµÖ®Ç°¿ÉÒÔ×öÆäËüµÄ²Ù×÷£¬µÈµ½ĞèÒªÕâ¸ö·µ»ØÖµÊ±£¬ÔÙÍ¨¹ıFutureµÃµ½
+ * å‡è®¾æœ‰ä¸€ä¸ªå¾ˆè€—æ—¶çš„è¿”å›å€¼éœ€è¦è®¡ç®—ï¼Œå¹¶ä¸”è¿™ä¸ªè¿”å›å€¼ä¸æ˜¯ç«‹åˆ»éœ€è¦çš„è¯ï¼Œ é‚£ä¹ˆå°±å¯ä»¥ä½¿ç”¨è¿™ä¸ªç»„åˆï¼Œ
+ * ç”¨å¦ä¸€ä¸ªçº¿ç¨‹å»è®¡ç®—è¿”å›å€¼ï¼Œè€Œå½“å‰çº¿ç¨‹åœ¨ä½¿ç”¨è¿™ä¸ªè¿”å›å€¼ä¹‹å‰å¯ä»¥åšå…¶å®ƒçš„æ“ä½œï¼Œç­‰åˆ°éœ€è¦è¿™ä¸ªè¿”å›å€¼æ—¶ï¼Œå†é€šè¿‡Futureå¾—åˆ°
  */
 public class TestFuture {
 
-	public static void main(String[] args) throws Exception {
-		Callable<Integer> callable = new Callable<Integer>() {
+    public static void main(String[] args) throws Exception {
+        Callable<Integer> callable = new Callable<Integer>() {
 
-			public Integer call() throws Exception {
-				return new Random().nextInt(100);
-			}
-		};
-		FutureTask<Integer> futureTask = new FutureTask<Integer>(callable);
-		new Thread(futureTask).start();
+            public Integer call() throws Exception {
+                return new Random().nextInt(100);
+            }
+        };
+        FutureTask<Integer> futureTask = new FutureTask<Integer>(callable);
+        new Thread(futureTask).start();
 
-		Thread.sleep(1000);// ¿ÉÄÜ×öÒ»Ğ©ÊÂÇé
-		Integer r = futureTask.get(10, TimeUnit.SECONDS);
-		System.out.println(r);
-		/** µÚ¶şÖÖ·½Ê½ */
-		ExecutorService threadPool = Executors.newSingleThreadExecutor();
-		Future<Integer> future = threadPool.submit(callable);
-		Thread.sleep(1000);// ¿ÉÄÜ×öÒ»Ğ©ÊÂÇé
-		System.out.println(future.get());
-		threadPool.shutdown();
-	}
+        Thread.sleep(1000);// å¯èƒ½åšä¸€äº›äº‹æƒ…
+        Integer r = futureTask.get(10, TimeUnit.SECONDS);
+        System.out.println(r);
+        /** ç¬¬äºŒç§æ–¹å¼ */
+        ExecutorService threadPool = Executors.newSingleThreadExecutor();
+        Future<Integer> future = threadPool.submit(callable);
+        Thread.sleep(1000);// å¯èƒ½åšä¸€äº›äº‹æƒ…
+        System.out.println(future.get());
+        threadPool.shutdown();
+    }
 }

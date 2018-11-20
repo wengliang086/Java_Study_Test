@@ -4,28 +4,28 @@ import java.util.Map.Entry;
 
 public class GetJavaHome {
 
-	/**
-	 * µ±³ÌĞòÖĞĞèÒªÊ¹ÓÃÓë²Ù×÷ÏµÍ³Ïà¹ØµÄ±äÁ¿£¨ÀıÈç£ºÎÄ¼ş·Ö¸ô·û¡¢»»ĞĞ·û£©Ê±£¬JavaÌá¹©ÁËSystemÀàµÄ¾²Ì¬·½·¨getenv()ºÍgetProperty()ÓÃÓÚ·µ»ØÏµÍ³Ïà¹ØµÄ±äÁ¿ÓëÊôĞÔ£¬ 
-	 * getenv·½·¨·µ»ØµÄ±äÁ¿´ó¶àÓÚÏµÍ³Ïà¹Ø£¬ 
-	 * getProperty·½·¨·µ»ØµÄ±äÁ¿´ó¶àÓëjava³ÌĞòÓĞ¹Ø¡£
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		String javaHome = System.getProperty("java.home");
-		String arch = System.getProperty("sun.arch.data.model");
-		System.out.println(System.getenv("java_home"));
-		System.out.println(System.getenv("JAVA_HOME"));
+    /**
+     * å½“ç¨‹åºä¸­éœ€è¦ä½¿ç”¨ä¸æ“ä½œç³»ç»Ÿç›¸å…³çš„å˜é‡ï¼ˆä¾‹å¦‚ï¼šæ–‡ä»¶åˆ†éš”ç¬¦ã€æ¢è¡Œç¬¦ï¼‰æ—¶ï¼ŒJavaæä¾›äº†Systemç±»çš„é™æ€æ–¹æ³•getenv()å’ŒgetProperty()ç”¨äºè¿”å›ç³»ç»Ÿç›¸å…³çš„å˜é‡ä¸å±æ€§ï¼Œ
+     * getenvæ–¹æ³•è¿”å›çš„å˜é‡å¤§å¤šäºç³»ç»Ÿç›¸å…³ï¼Œ
+     * getPropertyæ–¹æ³•è¿”å›çš„å˜é‡å¤§å¤šä¸javaç¨‹åºæœ‰å…³ã€‚
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        String javaHome = System.getProperty("java.home");
+        String arch = System.getProperty("sun.arch.data.model");
+        System.out.println(System.getenv("java_home"));
+        System.out.println(System.getenv("JAVA_HOME"));
 
-		System.out.println(javaHome);
-		System.out.println(arch);
-		// getProperty·½·¨·µ»ØµÄ±äÁ¿´ó¶àÓëjava³ÌĞòÓĞ¹Ø¡£
-		for (Entry<Object, Object> entry : System.getProperties().entrySet()) {
-			// System.out.println(entry.getKey() + "===========" + entry.getValue());
-		}
-		// getenv·½·¨·µ»ØµÄ±äÁ¿´ó¶àÓÚÏµÍ³Ïà¹Ø£¬
-		for (Entry<String, String> entry : System.getenv().entrySet()) {
-			// System.out.println(entry.getKey() + "===========" + entry.getValue());
-		}
-	}
+        System.out.println(javaHome);
+        System.out.println(arch);
+        // getPropertyæ–¹æ³•è¿”å›çš„å˜é‡å¤§å¤šä¸javaç¨‹åºæœ‰å…³ã€‚
+        for (Entry<Object, Object> entry : System.getProperties().entrySet()) {
+            // System.out.println(entry.getKey() + "===========" + entry.getValue());
+        }
+        // getenvæ–¹æ³•è¿”å›çš„å˜é‡å¤§å¤šäºç³»ç»Ÿç›¸å…³ï¼Œ
+        for (Entry<String, String> entry : System.getenv().entrySet()) {
+            // System.out.println(entry.getKey() + "===========" + entry.getValue());
+        }
+    }
 }

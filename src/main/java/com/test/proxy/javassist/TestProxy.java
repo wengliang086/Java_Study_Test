@@ -1,68 +1,62 @@
 package com.test.proxy.javassist;
 
-import java.lang.reflect.Constructor;
-
 import com.test.proxy.IUserDao;
 import com.test.proxy.UserDao;
+import javassist.*;
 
-import javassist.ClassPool;
-import javassist.CtClass;
-import javassist.CtConstructor;
-import javassist.CtField;
-import javassist.CtMethod;
-import javassist.CtNewConstructor;
+import java.lang.reflect.Constructor;
 
 /**
- * ²âÊÔÀà
+ * æµ‹è¯•ç±»
  */
 public class TestProxy {
-	public static void main(String[] args) throws Exception {
-		createProxy();
-	}
+    public static void main(String[] args) throws Exception {
+        createProxy();
+    }
 
-	/**
-	 * ÊÖ¶¯´´½¨×Ö½ÚÂë
-	 * 
-	 * @throws Exception
-	 */
-	private static void createProxy() throws Exception {
-		ClassPool pool = ClassPool.getDefault();
-		CtClass cc = pool.makeClass("com.test.proxy.javassist.UserDaoProxy");
+    /**
+     * æ‰‹åŠ¨åˆ›å»ºå­—èŠ‚ç 
+     *
+     * @throws Exception
+     */
+    private static void createProxy() throws Exception {
+        ClassPool pool = ClassPool.getDefault();
+        CtClass cc = pool.makeClass("com.test.proxy.javassist.UserDaoProxy");
 
-		// ÉèÖÃ½Ó¿Ú
-		CtClass inter = pool.get("com.test.proxy.IUserDao");
-		cc.setInterfaces(new CtClass[] { inter });
+        // è®¾ç½®æ¥å£
+        CtClass inter = pool.get("com.test.proxy.IUserDao");
+        cc.setInterfaces(new CtClass[]{inter});
 
-		// ÉèÖÃField
-		CtField field = CtField.make("private com.test.proxy.IUserDao target;", cc);
-		cc.addField(field);
+        // è®¾ç½®Field
+        CtField field = CtField.make("private com.test.proxy.IUserDao target;", cc);
+        cc.addField(field);
 
-		CtClass udc = pool.get("com.test.proxy.IUserDao");
-		CtClass[] arrays = new CtClass[] { udc };
-		CtConstructor ctc = CtNewConstructor.make(arrays, null, CtNewConstructor.PASS_NONE, null, null, cc);
-		// ÉèÖÃ¹¹Ôìº¯ÊıÄÚ²¿ĞÅÏ¢
-		ctc.setBody("{this.target=$1;}");
-		cc.addConstructor(ctc);
+        CtClass udc = pool.get("com.test.proxy.IUserDao");
+        CtClass[] arrays = new CtClass[]{udc};
+        CtConstructor ctc = CtNewConstructor.make(arrays, null, CtNewConstructor.PASS_NONE, null, null, cc);
+        // è®¾ç½®æ„é€ å‡½æ•°å†…éƒ¨ä¿¡æ¯
+        ctc.setBody("{this.target=$1;}");
+        cc.addConstructor(ctc);
 
-		// save ·½·¨
-		CtMethod saveM = CtMethod.make("public void save() {}", cc);
-		saveM.setBody("{System.out.println(\"javassist¿ªÊ¼ÊÂÎñ...\");" + "target.save();" + "System.out.println(\"javassistÌá½»ÊÂÎñ...\");}");
-		cc.addMethod(saveM);
+        // save æ–¹æ³•
+        CtMethod saveM = CtMethod.make("public void save() {}", cc);
+        saveM.setBody("{System.out.println(\"javassistå¼€å§‹äº‹åŠ¡...\");" + "target.save();" + "System.out.println(\"javassistæäº¤äº‹åŠ¡...\");}");
+        cc.addMethod(saveM);
 
-		// get ·½·¨
-		CtMethod getM = CtMethod.make("public java.lang.String get() {System.out.println(\"javassist get...\");return target.get();}", cc);
-		cc.addMethod(getM);
+        // get æ–¹æ³•
+        CtMethod getM = CtMethod.make("public java.lang.String get() {System.out.println(\"javassist get...\");return target.get();}", cc);
+        cc.addMethod(getM);
 
-		// »ñÈ¡¶¯Ì¬Éú³ÉµÄclass
-		Class<?> c = cc.toClass();
-		// »ñÈ¡¹¹ÔìÆ÷
-		Constructor<?> constructor = c.getConstructor(IUserDao.class);
-		// Í¨¹ı¹¹ÔìÆ÷ÊµÀı»¯
-		IUserDao o = (IUserDao) constructor.newInstance(new UserDao());
-		o.save();
-		o.get();
+        // è·å–åŠ¨æ€ç”Ÿæˆçš„class
+        Class<?> c = cc.toClass();
+        // è·å–æ„é€ å™¨
+        Constructor<?> constructor = c.getConstructor(IUserDao.class);
+        // é€šè¿‡æ„é€ å™¨å®ä¾‹åŒ–
+        IUserDao o = (IUserDao) constructor.newInstance(new UserDao());
+        o.save();
+        o.get();
 
-		String path = "C:\\Users\\Administrator\\Desktop/";
-		cc.writeFile(path);
-	}
+        String path = "C:\\Users\\Administrator\\Desktop/";
+        cc.writeFile(path);
+    }
 }

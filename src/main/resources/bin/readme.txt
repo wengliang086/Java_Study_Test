@@ -1,39 +1,39 @@
-ºÜ¶àÅóÓÑÔÚWINDOWSÏÂ»áÓÃÅú´¦ÀíÈ¥Æô¶¯×Ô¼ºµÄjava³ÌÐò£¬
-Ò»°ãµÄÐ´·¨ÊÇ
-ÔËÐÐclass£º
+å¾ˆå¤šæœ‹å‹åœ¨WINDOWSä¸‹ä¼šç”¨æ‰¹å¤„ç†åŽ»å¯åŠ¨è‡ªå·±çš„javaç¨‹åºï¼Œ
+ä¸€èˆ¬çš„å†™æ³•æ˜¯
+è¿è¡Œclassï¼š
 java xx
 
-ÔËÐÐjar£º
+è¿è¡Œjarï¼š
 java -jar xxx.jar
-µ«ÊÇÕâÑùÔËÐÐ»áÓÐÒ»¸ö¶ñÐÄµÄ¶Ô»°¿òÍ£ÔÚÄÇÖ±µ½ÎÒÃÇ¹Ø±Õ³ÌÐò¡£
+ä½†æ˜¯è¿™æ ·è¿è¡Œä¼šæœ‰ä¸€ä¸ªæ¶å¿ƒçš„å¯¹è¯æ¡†åœåœ¨é‚£ç›´åˆ°æˆ‘ä»¬å…³é—­ç¨‹åºã€‚
 
 
-ÓÚÊÇºÜ¶àÈËËµ¿ÉÒÔÕâÑù
-ÔËÐÐclass£º
+äºŽæ˜¯å¾ˆå¤šäººè¯´å¯ä»¥è¿™æ ·
+è¿è¡Œclassï¼š
 start javaw xx
-ÔËÐÐjar£º
+è¿è¡Œjarï¼š
 start javaw -jar xxx.jar  
 
-ÕâÖÖ·½·¨DOS´°¿Ú»¹ÊÇ»áÒ»ÉÁ¶ø¹ý£¬Õâ¾ÍËã½â¾öÎÊÌâÁËÂð£¿£¡ÍøÉÏºÜ¶àÈËËµÊÇµÄ.
-¶ÔÎÒÃÇÕâÖÖ×·ÇóÍêÃÀµÄÈËÀ´ËµÉÁÒ»ÏÂ»¹ÊÇ²»ÄÜ½ÓÊÜµÎ.
+è¿™ç§æ–¹æ³•DOSçª—å£è¿˜æ˜¯ä¼šä¸€é—ªè€Œè¿‡ï¼Œè¿™å°±ç®—è§£å†³é—®é¢˜äº†å—ï¼Ÿï¼ç½‘ä¸Šå¾ˆå¤šäººè¯´æ˜¯çš„.
+å¯¹æˆ‘ä»¬è¿™ç§è¿½æ±‚å®Œç¾Žçš„äººæ¥è¯´é—ªä¸€ä¸‹è¿˜æ˜¯ä¸èƒ½æŽ¥å—æ»´.
 
-ÓÚÊÇÖÕ¼«½â¾ö·½°¸³öÏÖÁË£¡
-ÄÇ¾ÍÊÇÔÚÅú´¦ÀíµÚÒ»ÐÐ¼ÓÉÏ@echo off
+äºŽæ˜¯ç»ˆæžè§£å†³æ–¹æ¡ˆå‡ºçŽ°äº†ï¼
+é‚£å°±æ˜¯åœ¨æ‰¹å¤„ç†ç¬¬ä¸€è¡ŒåŠ ä¸Š@echo off
 
-ÕâÑùÎÒÃÇµÄÅú´¦Àí¾Í±ä³ÉÁË
+è¿™æ ·æˆ‘ä»¬çš„æ‰¹å¤„ç†å°±å˜æˆäº†
 
-ÔËÐÐclass£º
+è¿è¡Œclassï¼š
 @echo off
 start javaw xx
 
-ÔËÐÐjar£º
+è¿è¡Œjarï¼š
 @echo off
 start javaw -jar xxx.jar  
 
 
-¿ìÊÔÊÔ°É£¬¾ø¶Ô²»ÉÁÁË¡£¹þ¹þ¹þ¡£
+å¿«è¯•è¯•å§ï¼Œç»å¯¹ä¸é—ªäº†ã€‚å“ˆå“ˆå“ˆã€‚
 
-½âÊÍÒ»ÏÂ
+è§£é‡Šä¸€ä¸‹
  echo off
-±íÊ¾ÔÚ´ËÓï¾äºóËùÓÐÔËÐÐµÄÃüÁî¶¼²»ÏÔÊ¾ÃüÁîÐÐ±¾Éí 
-@ ±íÊ¾ÔËÐÐÊ±²»ÏÔÊ¾±¾ÃüÁîÐÐ
+è¡¨ç¤ºåœ¨æ­¤è¯­å¥åŽæ‰€æœ‰è¿è¡Œçš„å‘½ä»¤éƒ½ä¸æ˜¾ç¤ºå‘½ä»¤è¡Œæœ¬èº« 
+@ è¡¨ç¤ºè¿è¡Œæ—¶ä¸æ˜¾ç¤ºæœ¬å‘½ä»¤è¡Œ

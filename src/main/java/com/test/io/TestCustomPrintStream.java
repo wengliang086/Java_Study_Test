@@ -5,24 +5,24 @@ import java.io.IOException;
 
 public class TestCustomPrintStream {
 
-	static final String path = System.getProperty("user.dir");
+    static final String path = System.getProperty("user.dir");
 
-	public static void main(String[] args) throws IOException {
-		System.out.println(path);
-		System.err.println(path);
-		// ∏≤∏«ƒ¨»œ¡˜
-		FileWriter fileWriter = new FileWriter(path + "/testLog.txt", true);
-		System.setOut(new MyOutPrintStream(fileWriter));
-		System.setErr(new MyErrPrintStream(fileWriter));
+    public static void main(String[] args) throws IOException {
+        System.out.println(path);
+        System.err.println(path);
+        // Ë¶ÜÁõñÈªòËÆ§ÊµÅ
+        FileWriter fileWriter = new FileWriter(path + "/testLog.txt", true);
+        System.setOut(new MyOutPrintStream(fileWriter));
+        System.setErr(new MyErrPrintStream(fileWriter));
 
-		System.out.println(path);
-		System.err.println(path);
-		// throw new NumberFormatException("zdfaf");
-		try {
-			Integer.parseInt("error int");
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		}
-	}
+        System.out.println(path);
+        System.err.println(path);
+        // throw new NumberFormatException("zdfaf");
+        try {
+            Integer.parseInt("error int");
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -1,33 +1,33 @@
 package com.test.proxy.cglib;
 
-import java.lang.reflect.Method;
-
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
+import java.lang.reflect.Method;
+
 public class ProxyFactory implements MethodInterceptor {
 
-	// Î¬»¤Ä¿±ê¶ÔÏó
-	private Object target;
+    // ç»´æŠ¤ç›®æ ‡å¯¹è±¡
+    private Object target;
 
-	public ProxyFactory(Object target) {
-		this.target = target;
-	}
+    public ProxyFactory(Object target) {
+        this.target = target;
+    }
 
-	// ¸øÄ¿±ê¶ÔÏó´´½¨Ò»¸ö´úÀí¶ÔÏó
-	public Object getProxyInstance() {
-		Enhancer enhancer = new Enhancer();
-		enhancer.setSuperclass(target.getClass());
-		enhancer.setCallback(this);
-		return enhancer.create();
-	}
+    // ç»™ç›®æ ‡å¯¹è±¡åˆ›å»ºä¸€ä¸ªä»£ç†å¯¹è±¡
+    public Object getProxyInstance() {
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(target.getClass());
+        enhancer.setCallback(this);
+        return enhancer.create();
+    }
 
-	public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
-		System.out.println("¿ªÊ¼ÊÂÎñ...");
-		Object returnValue = method.invoke(target, args);
-		System.out.println("Ìá½»ÊÂÎñ...");
-		return returnValue;
-	}
+    public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+        System.out.println("å¼€å§‹äº‹åŠ¡...");
+        Object returnValue = method.invoke(target, args);
+        System.out.println("æäº¤äº‹åŠ¡...");
+        return returnValue;
+    }
 
 }

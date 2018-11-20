@@ -4,21 +4,21 @@ import java.util.Iterator;
 import java.util.ServiceLoader;
 
 /**
- * ÔÚjar°üµÄMETA-INF/services/Ä¿Â¼ÀïÍ¬Ê±´´½¨Ò»¸öÒÔ·şÎñ½Ó¿ÚÃüÃûµÄÎÄ¼ş¡£¸ÃÎÄ¼şÀï¾ÍÊÇÊµÏÖ¸Ã·şÎñ½Ó¿ÚµÄ¾ßÌåÊµÏÖÀà¡£
- * 
- * @author Administrator jdkÌá¹©·şÎñÊµÏÖ²éÕÒµÄÒ»¸ö¹¤¾ßÀà£ºjava.util.ServiceLoader
+ * åœ¨jaråŒ…çš„META-INF/services/ç›®å½•é‡ŒåŒæ—¶åˆ›å»ºä¸€ä¸ªä»¥æœåŠ¡æ¥å£å‘½åçš„æ–‡ä»¶ã€‚è¯¥æ–‡ä»¶é‡Œå°±æ˜¯å®ç°è¯¥æœåŠ¡æ¥å£çš„å…·ä½“å®ç°ç±»ã€‚
+ *
+ * @author Administrator jdkæä¾›æœåŠ¡å®ç°æŸ¥æ‰¾çš„ä¸€ä¸ªå·¥å…·ç±»ï¼šjava.util.ServiceLoader
  */
 public class SearchFactory {
 
-	private SearchFactory() {
-	}
+    private SearchFactory() {
+    }
 
-	public static Search newSearch() {
-		ServiceLoader<Search> serviceLoader = ServiceLoader.load(Search.class);
-		Iterator<Search> searchs = serviceLoader.iterator();
-		if (searchs.hasNext()) {
-			return searchs.next();
-		}
-		return null;
-	}
+    public static Search newSearch() {
+        ServiceLoader<Search> serviceLoader = ServiceLoader.load(Search.class);
+        Iterator<Search> searchs = serviceLoader.iterator();
+        if (searchs.hasNext()) {
+            return searchs.next();
+        }
+        return null;
+    }
 }

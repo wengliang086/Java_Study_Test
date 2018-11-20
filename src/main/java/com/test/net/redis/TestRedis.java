@@ -1,41 +1,41 @@
 package com.test.net.redis;
 
+import redis.clients.jedis.Jedis;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import redis.clients.jedis.Jedis;
-
 public class TestRedis {
 
-	public static void main(String[] args) {
-		Jedis jedis = new Jedis("localhost");
-		System.out.println("Á¬½Ó³É¹¦£¡");
-		// ²é¿´·şÎñÊÇ·ñÔËĞĞ
-		System.out.println("·şÎñÕıÔÚÔËĞĞ: " + jedis.ping());
-		// ÉèÖÃ redis ×Ö·û´®Êı¾İ
-		jedis.set("runoobkey", "www.runoob.com");
-		// »ñÈ¡´æ´¢µÄÊı¾İ²¢Êä³ö
-		System.out.println("redis ´æ´¢µÄ×Ö·û´®Îª: " + jedis.get("runoobkey"));
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis("localhost");
+        System.out.println("è¿æ¥æˆåŠŸï¼");
+        // æŸ¥çœ‹æœåŠ¡æ˜¯å¦è¿è¡Œ
+        System.out.println("æœåŠ¡æ­£åœ¨è¿è¡Œ: " + jedis.ping());
+        // è®¾ç½® redis å­—ç¬¦ä¸²æ•°æ®
+        jedis.set("runoobkey", "www.runoob.com");
+        // è·å–å­˜å‚¨çš„æ•°æ®å¹¶è¾“å‡º
+        System.out.println("redis å­˜å‚¨çš„å­—ç¬¦ä¸²ä¸º: " + jedis.get("runoobkey"));
 
-		// ´æ´¢Êı¾İµ½ÁĞ±íÖĞ
-		jedis.lpush("site-list", "Runoob");
-		jedis.lpush("site-list", "Google");
-		jedis.lpush("site-list", "Taobao");
-		// »ñÈ¡´æ´¢µÄÊı¾İ²¢Êä³ö
-		List<String> list = jedis.lrange("site-list", 0, 2);
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println("ÁĞ±íÏîÎª: " + list.get(i));
-		}
+        // å­˜å‚¨æ•°æ®åˆ°åˆ—è¡¨ä¸­
+        jedis.lpush("site-list", "Runoob");
+        jedis.lpush("site-list", "Google");
+        jedis.lpush("site-list", "Taobao");
+        // è·å–å­˜å‚¨çš„æ•°æ®å¹¶è¾“å‡º
+        List<String> list = jedis.lrange("site-list", 0, 2);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("åˆ—è¡¨é¡¹ä¸º: " + list.get(i));
+        }
 
-		// »ñÈ¡Êı¾İ²¢Êä³ö
-		Set<String> keys = jedis.keys("*");
-		Iterator<String> it = keys.iterator();
-		while (it.hasNext()) {
-			String key = it.next();
-			System.out.println(key);
-		}
+        // è·å–æ•°æ®å¹¶è¾“å‡º
+        Set<String> keys = jedis.keys("*");
+        Iterator<String> it = keys.iterator();
+        while (it.hasNext()) {
+            String key = it.next();
+            System.out.println(key);
+        }
 
-		jedis.close();
-	}
+        jedis.close();
+    }
 }

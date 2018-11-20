@@ -9,42 +9,42 @@ import org.apache.zookeeper.data.Stat;
 
 public class TestZookeeper {
 
-	private static int sessionTimeout = 1000;
+    private static int sessionTimeout = 1000;
 
-	public static void main(String[] args) throws Exception {
-		String connectString = "localhost:" + 2181;
-		// ´´½¨Ò»¸öÓë·şÎñÆ÷µÄÁ¬½Ó
-		ZooKeeper zk = new ZooKeeper(connectString, sessionTimeout, new Watcher() {
-			// ¼à¿ØËùÓĞ±»´¥·¢µÄÊÂ¼ş
-			public void process(WatchedEvent event) {
-				System.out.println("ÒÑ¾­´¥·¢ÁË" + event.getType() + "ÊÂ¼ş£¡");
-			}
-		});
-		Stat stat = zk.exists("/testRootPath", true);
-		if (stat != null) {
-			System.out.println("/testRootPath Ä¿Â¼½ÚµãÒÑ¾­´æÔÚ£¡");
-			zk.delete("/testRootPath/testChildPathOne", -1);
-			// zk.delete("/testRootPath/testChildPathTwo", -1);
-			zk.delete("/testRootPath", -1);
-		}
-		// ´´½¨Ò»¸öÄ¿Â¼½Úµã
-		zk.create("/testRootPath", "testRootData".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-		// ´´½¨Ò»¸ö×ÓÄ¿Â¼½Úµã
-		zk.create("/testRootPath/testChildPathOne", "childOneData".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-		// È¡³ö×ÓÄ¿Â¼½ÚµãÁĞ±í
-		System.out.println(new String(zk.getData("/testRootPath", false, null)));
-		// ĞŞ¸Ä×ÓÄ¿Â¼½ÚµãÊı¾İ
-		zk.setData("/testRootPath/testChildPathOne", "modifyChildDataOne".getBytes(), -1);
-		System.out.println("Ä¿Â¼½Úµã×´Ì¬£º[" + zk.exists("/testRootPath", true) + "]");
-		// ´´½¨ÁíÍâÒ»¸ö×ÓÄ¿Â¼½Úµã
-		zk.create("/testRootPath/testChildPathTwo", "childTwoData".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-		System.out.println(new String(zk.getData("/testRootPath/testChildPathTwo", true, null)));
-		// É¾³ı×ÓÄ¿Â¼½Úµã
-		zk.delete("/testRootPath/testChildPathTwo", -1);
-		zk.delete("/testRootPath/testChildPathOne", -1);
-		// É¾³ı¸¸Ä¿Â¼½Úµã
-		zk.delete("/testRootPath", -1);
-		// ¹Ø±ÕÁ¬½Ó
-		zk.close();
-	}
+    public static void main(String[] args) throws Exception {
+        String connectString = "localhost:" + 2181;
+        // åˆ›å»ºä¸€ä¸ªä¸æœåŠ¡å™¨çš„è¿æ¥
+        ZooKeeper zk = new ZooKeeper(connectString, sessionTimeout, new Watcher() {
+            // ç›‘æ§æ‰€æœ‰è¢«è§¦å‘çš„äº‹ä»¶
+            public void process(WatchedEvent event) {
+                System.out.println("å·²ç»è§¦å‘äº†" + event.getType() + "äº‹ä»¶ï¼");
+            }
+        });
+        Stat stat = zk.exists("/testRootPath", true);
+        if (stat != null) {
+            System.out.println("/testRootPath ç›®å½•èŠ‚ç‚¹å·²ç»å­˜åœ¨ï¼");
+            zk.delete("/testRootPath/testChildPathOne", -1);
+            // zk.delete("/testRootPath/testChildPathTwo", -1);
+            zk.delete("/testRootPath", -1);
+        }
+        // åˆ›å»ºä¸€ä¸ªç›®å½•èŠ‚ç‚¹
+        zk.create("/testRootPath", "testRootData".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        // åˆ›å»ºä¸€ä¸ªå­ç›®å½•èŠ‚ç‚¹
+        zk.create("/testRootPath/testChildPathOne", "childOneData".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        // å–å‡ºå­ç›®å½•èŠ‚ç‚¹åˆ—è¡¨
+        System.out.println(new String(zk.getData("/testRootPath", false, null)));
+        // ä¿®æ”¹å­ç›®å½•èŠ‚ç‚¹æ•°æ®
+        zk.setData("/testRootPath/testChildPathOne", "modifyChildDataOne".getBytes(), -1);
+        System.out.println("ç›®å½•èŠ‚ç‚¹çŠ¶æ€ï¼š[" + zk.exists("/testRootPath", true) + "]");
+        // åˆ›å»ºå¦å¤–ä¸€ä¸ªå­ç›®å½•èŠ‚ç‚¹
+        zk.create("/testRootPath/testChildPathTwo", "childTwoData".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        System.out.println(new String(zk.getData("/testRootPath/testChildPathTwo", true, null)));
+        // åˆ é™¤å­ç›®å½•èŠ‚ç‚¹
+        zk.delete("/testRootPath/testChildPathTwo", -1);
+        zk.delete("/testRootPath/testChildPathOne", -1);
+        // åˆ é™¤çˆ¶ç›®å½•èŠ‚ç‚¹
+        zk.delete("/testRootPath", -1);
+        // å…³é—­è¿æ¥
+        zk.close();
+    }
 }

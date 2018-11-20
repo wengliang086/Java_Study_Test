@@ -1,15 +1,15 @@
 package com.test.proxy.cglib;
 
 /**
- * 目标对象,没有实现任何接口
+ * 鐩爣瀵硅薄,娌℃湁瀹炵幇浠讳綍鎺ュ彛
  */
 public class UserDao {
-	public void save() {
-		System.out.println("----已经保存数据!----");
-	}
+    public void save() {
+        System.out.println("----宸茬粡淇濆瓨鏁版嵁!----");
+    }
 
-	public String get() {
-		System.out.println("----获取数据!----");
-		return "模拟数据";
-	}
+    public String get() {
+        System.out.println("----鑾峰彇鏁版嵁!----");
+        return "妯℃嫙鏁版嵁";
+    }
 }
