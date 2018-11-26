@@ -2,6 +2,10 @@
 
 ## io
 
+https://www.cnblogs.com/biehongli/p/6074713.html
+
+## JMX（Java Management Extensions）
+
 ## net
 
 * netty
@@ -86,7 +90,7 @@
 
 ## spring schema
 
-## CAP理论
+## CAP理论(http://www.ruanyifeng.com/blog/2018/07/cap.html，https://www.cnblogs.com/szlbm/p/5588543.html)
     ① C：Consistency，一致性，数据一致更新，所有数据变动都是同步的。
     ② A：Availability，可用性，系统具有好的响应性能。
     ③ P：Partition tolerance，分区容错性。以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择，也就是说无论任何消息丢失，系统都可用。
